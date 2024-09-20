@@ -45,12 +45,47 @@
         header .logo-text {
             color: #ecdfcc;
             font-size: 2rem;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: auto;
+        }
+
+        header nav a {
+            color: #ecdfcc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        header nav a:hover::after {
+            content: attr(data-description);
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #181c14;
+            color: #ecdfcc;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         main {
             flex: 1;
-            padding: 7rem 9% 5rem; /* Extra bottom padding to prevent overlap with the footer */
+            padding: 7rem 9% 5rem;
+        }
+
+        .intro-text {
+            font-size: 1.5rem;
+            color: #3c3d37;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
         section {
@@ -61,7 +96,7 @@
         .blog {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
             gap: 1.5rem;
         }
 
@@ -72,6 +107,7 @@
             width: 30%;
             border-radius: 1rem;
             transition: transform 0.3s, box-shadow 0.3s;
+            flex: 1;
         }
 
         .post:hover {
@@ -87,14 +123,42 @@
         }
 
         .post h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #3c3d37;
             margin-top: 1rem;
+            font-weight: normal;
         }
 
         .post p {
             font-size: 1rem;
             color: #3c3d37;
+            font-weight: normal;
+        }
+
+        /* Contact Section */
+        .contact {
+            margin-top: 3rem;
+            text-align: center;
+            background-color: #d1e6d9;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 70%; /* Increased width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            color: #3c3d37;
+            font-weight: normal;
+        }
+
+        .contact p {
+            font-size: 1rem;
+            color: #3c3d37;
+            margin: 0.5rem 0;
+            font-weight: normal;
         }
 
         /* Copyright Design */
@@ -107,7 +171,10 @@
             padding: 1rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem; /* Extra space before footer */
+            margin-bottom: 2rem;
+            width: 70%; /* Increased width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .copyright a {
@@ -137,7 +204,7 @@
         }
 
         footer a {
-            color: #65ecdf; /* Teal */
+            color: #65ecdf;
             text-decoration: none;
         }
 
@@ -153,13 +220,22 @@
         <!-- Sync'd Logo and Text -->
         <div style="display: flex; align-items: center;">
             <a href="/index.html"><img src="logo.png" alt="Sync'd Logo"></a>
-            <span class="logo-text">Sync'd</span> <!-- Added Sync'd beside the logo -->
+            <span class="logo-text">Sync'd</span>
         </div>
+        <!-- Navigation Links -->
+        <nav>
+            <a href="studyroom.html" data-description="Explore our study resources">Study Room</a>
+            <a href="newsletter.html" data-description="Stay updated with our newsletter">Recap'd</a>
+            <a href="stopwatch.html" data-description="Track your time with our stopwatch">Stopwatch</a>
+        </nav>
         <!-- Profile Image -->
         <a href="profile.html"><img src="profile.png" alt="Profile Image"></a>
     </header>
 
     <main>
+        <div class="intro-text">
+            Your one-stop destination for all things study.
+        </div>
         <section class="blog">
             <!-- Post 1 -->
             <div class="post" onclick="location.href='todo.html'">
@@ -182,6 +258,14 @@
                 <p>Need a pause? Take a moment to recharge.</p>
             </div>
         </section>
+
+        <!-- Contact Section -->
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out!</p>
+            <p>Email: support@syncd.com</p>
+            <p>Follow us on social media for updates!</p>
+        </div>
 
         <!-- Copyright Section -->
         <div class="copyright">
