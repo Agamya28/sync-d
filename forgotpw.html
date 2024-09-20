@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+        }
+
+        .left {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        .left h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #3f5fd9;
+        }
+
+        .alternative-actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .alternative-actions a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .alternative-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .right img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .right {
+                height: 300px;
+            }
+
+            .right img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>Forgot your password?</h2>
+            <p>Enter your email address below to recieve a link to reset your password.</p>
+            <form>
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+                <button type="submit" class="btn">Send Reset Link</button>
+            </form>
+            <div class="alternative-actions">
+                <p>Remembered your password? <a href="login.html">Log in here</a></p>
+            </div>
+        </div>
+        <div class="right">
+            <!-- Replace the src link with your image path -->
+            <img src="index login.jpg" alt="Password Reset Image">
+        </div>
+    </div>
+</body>
+</html>
