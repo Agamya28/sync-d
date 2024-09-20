@@ -1,25 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Sync'd</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+            overflow-x: hidden;
         }
-        .welcome-message {
-            margin-top: 50px;
-            font-size: 24px;
+
+        body {
+            background-color: #f7f7f7;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #181c14;
+            display: flex;
+            padding: 1em;
+            align-items: center;
+            z-index: 1000;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            height: 3em;
+            width: 3em;
+            margin-right: 1rem;
+        }
+
+        header .logo-text {
+            color: #ecdfcc;
+            font-size: 2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        main {
+            flex: 1;
+            padding: 7rem 9% 5rem; /* Extra bottom padding to prevent overlap with the footer */
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        /* Blog Post Section */
+        .blog {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .post {
+            background-color: #ecdfcc;
+            padding: 2rem;
+            text-align: center;
+            width: 30%;
+            border-radius: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .post:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        .post h3 {
+            font-size: 1.8rem;
+            color: #3c3d37;
+            margin-top: 1rem;
+        }
+
+        .post p {
+            font-size: 1rem;
+            color: #3c3d37;
+        }
+
+        /* Copyright Design */
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #3c3d37;
+            background-color: #ecdfcc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem; /* Extra space before footer */
+        }
+
+        .copyright a {
+            color: #65ecdf;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #181c14;
+            padding: 1rem;
+            color: #ecdfcc;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #65ecdf; /* Teal */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
-    <div class="welcome-message">
-        <h1>Welcome to the Home Page!</h1>
-        <p>You are successfully logged in.</p>
-    </div>
+
+    <header>
+        <!-- Sync'd Logo and Text -->
+        <div style="display: flex; align-items: center;">
+            <a href="index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+            <span class="logo-text">Sync'd</span> <!-- Added Sync'd beside the logo -->
+        </div>
+        <!-- Profile Image -->
+        <a href="profile.html"><img src="profile.png" alt="Profile Image"></a>
+    </header>
+
+    <main>
+        <section class="blog">
+            <!-- Post 1 -->
+            <div class="post" onclick="location.href='todo.html'">
+                <img src="study.jpg" alt="Post 1">
+                <h3>Set your Goals</h3>
+                <p>Keep track of all your tasks and stay up to date.</p>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post" onclick="location.href='help.html'">
+                <img src="help.jpg" alt="Post 2">
+                <h3>Take/Give help</h3>
+                <p>Assist and get assistance from others in vit.</p>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post" onclick="location.href='takeabreak.html'">
+                <img src="take a break.jpg" alt="Post 3">
+                <h3>Take a break</h3>
+                <p>Need a pause? Take a moment to recharge.</p>
+            </div>
+        </section>
+
+        <!-- Copyright Section -->
+        <div class="copyright">
+            <p>&copy; 2024 Sync'd. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Stay Connected. Powered by Sync'd.</p>
+    </footer>
+
 </body>
+
 </html>
