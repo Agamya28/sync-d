@@ -29,9 +29,15 @@
             background-color: #181c14;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             padding: 1rem;
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
         }
 
         header img {
@@ -43,6 +49,24 @@
         header .logo-text {
             color: #ecdfcc;
             font-size: 2rem;
+        }
+
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .profile-btn img {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .profile-btn img:hover {
+            transform: scale(1.1);
         }
 
         main {
@@ -63,6 +87,7 @@
             border-radius: 1rem;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
 
         .post:hover {
@@ -75,6 +100,30 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+        }
+
+        .post p {
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .delete-btn {
+            display: none;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .post:hover .delete-btn {
+            display: block;
         }
 
         footer {
@@ -103,16 +152,61 @@
             font-size: 1rem;
             margin-bottom: 20px;
         }
+
+        .post-form {
+            display: none;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-form input, .post-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .post-form button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
-        <div class="logo-text">Sync'd</div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">Sync'd</div>
+        </div>
+
+        <!-- Profile button on the right side -->
+        <div class="profile-btn">
+            <a href="profile.html">
+                <img src="profile.png" alt="Profile" title="Go to Profile">
+            </a>
+        </div>
     </header>
 
     <main>
         <button class="add-post">Add a Post</button>
+
+        <!-- Post Form -->
+        <div class="post-form">
+            <h3>Upload a Post</h3>
+            <input type="file" id="imageUpload" accept="image/*">
+            <textarea id="caption" rows="3" placeholder="Enter a caption..."></textarea>
+            <button id="submitPost">Submit Post</button>
+        </div>
+
         <h2>Your Feed</h2>
         <section class="feed">
             <!-- Posts will be dynamically added here -->
@@ -121,28 +215,75 @@
     </main>
 
     <footer>
-        <p>© 2024 Sync'd</p>
+        <p>Stay Connected. Powered by Sync'd.</p>
     </footer>
 
     <script>
         const feed = document.querySelector('.feed');
         const noPostsMsg = document.querySelector('.no-posts');
+        const postForm = document.querySelector('.post-form');
+        const addPostBtn = document.querySelector('.add-post');
+        const submitPostBtn = document.querySelector('#submitPost');
 
-        // Example: Dynamically adding a post
-        function addPost(imageSrc) {
+        // Toggle post form visibility
+        addPostBtn.addEventListener('click', () => {
+            postForm.style.display = postForm.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Example: Dynamically adding a post with image and caption
+        function addPost(imageSrc, captionText) {
             const post = document.createElement('div');
             post.className = 'post';
-            post.innerHTML = `<img src="${imageSrc}" alt="Post Image">`;
+            post.innerHTML = `
+                <img src="${imageSrc}" alt="Post Image">
+                <p>${captionText}</p>
+                <button class="delete-btn">Delete</button>
+            `;
             feed.appendChild(post);
             noPostsMsg.style.display = 'none';
+
+            // Delete post functionality
+            post.querySelector('.delete-btn').addEventListener('click', () => {
+                post.remove();
+                checkNoPosts();
+            });
+
+            // Right-click menu for delete
+            post.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                const deleteBtn = post.querySelector('.delete-btn');
+                deleteBtn.style.display = 'block';
+            });
         }
 
-        document.querySelector('.add-post').addEventListener('click', () => {
-            addPost('image1.jpg'); // Example image
+        // Handle form submission
+        submitPostBtn.addEventListener('click', () => {
+            const imageInput = document.getElementById('imageUpload');
+            const captionInput = document.getElementById('caption').value;
+
+            if (imageInput.files.length > 0 && captionInput) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    addPost(e.target.result, captionInput);
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+                postForm.style.display = 'none';
+            } else {
+                alert('Please upload an image and add a caption.');
+            }
         });
 
         // Check for posts on load
         window.onload = () => {
+            if (feed.children.length === 0) {
+                noPostsMsg.style.display = 'block';
+            } else {
+                noPostsMsg.style.display = 'none';
+            }
+        };
+
+        // Check if no posts left
+        function checkNoPosts() {
             if (feed.children.length === 0) {
                 noPostsMsg.style.display = 'block';
             } else {
