@@ -153,7 +153,7 @@
 <body>
     <div class="container">
         <div class="left">
-            <h2>Welcome to sync'd!</h2>
+            <h2>Welcome to Sync'd!</h2>
             <form>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -205,9 +205,9 @@
 
                 const result = await response.json();
                 if (response.status === 200) {
-                    window.location.href='home.html';
+                    window.location.href = 'home.html'; // Redirect to home.html upon success
                 } else {
-                    alert(result.message);
+                    alert(result.message); // Display error message on failure
                 }
             } catch (error) {
                 console.error('Error:', error);
