@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Sync'd</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #181c14;
+            color: #ecdfcc;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-text {
+            font-size: 2rem;
+            font-family: Impact, sans-serif;
+        }
+
+        header a img {
+            height: 3em;
+            width: 3em;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 2rem;
+        }
+
+        .profile-header .photo {
+            text-align: center;
+        }
+
+        .profile-header .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #65ecdf;
+            object-fit: cover;
+        }
+
+        .profile-header .user-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .user-details h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .user-details p {
+            margin: 0.2rem 0;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .user-details .email {
+            color: #65bdec;
+        }
+
+        /* Grid section for user info */
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-box {
+            background-color: #ecdfcc;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .info-box h2 {
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Task Completion Progress Bar */
+        .task-progress {
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 25px;
+            width: 100%;
+            position: relative;
+        }
+
+        .task-progress .progress {
+            background-color: #65bdec;
+            height: 100%;
+            border-radius: 5px;
+            width: 75%; /* Example percentage */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Skills and Experience Section */
+        .skills-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .skills-box h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: #65bdec;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #181c14;
+            padding: 1rem;
+            color: #ecdfcc;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #65bdec;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Sync'd Logo and Profile Link -->
+        <div style="display: flex; align-items: center;">
+            <a href="index.html"><img src="logo sync'd.png" alt="Sync'd Logo"></a>
+            <span class="logo-text">Sync'd</span>
+        </div>
+        <!-- Profile Image Link -->
+        <a href="profile.html"><img src="profile button.png" alt="Profile Image"></a>
+    </header>
+
+    <main>
+        <!-- Profile Header -->
+        <section class="profile-header">
+            <!-- User Photo -->
+            <div class="photo">
+                <img src="man_4140048.png" alt="User Photo">
+            </div>
+            <!-- User Details -->
+            <div class="user-details">
+                <h1>John Doe</h1>
+                <p class="email">johndoe@example.com</p>
+                <p>Member since: January 2024</p>
+            </div>
+        </section>
+
+        <!-- Profile Info Grid -->
+        <section class="profile-info">
+            <!-- Task Completion -->
+            <div class="info-box">
+                <h2>Task Completion</h2>
+                <div class="task-progress">
+                    <div class="progress" style="width: 75%;">75%</div> <!-- Example completion percentage -->
+                </div>
+            </div>
+
+            <!-- Friends Connected -->
+            <div class="info-box">
+                <h2>Friends Connected</h2>
+                <p>58</p>
+            </div>
+
+            <!-- Followers -->
+            <div class="info-box">
+                <h2>Requests Recieved</h2>
+                <p>10</p>
+            </div>
+        </section>
+
+        <!-- Skills and Experience -->
+        <section class="skills-box">
+            <h2>Skills & Experience</h2>
+            <div class="skills-list">
+                <div class="skill-item">Web Development</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Project Management</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">UI/UX Design</div>
+                <div class="skill-item">Team Collaboration</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sync'd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
