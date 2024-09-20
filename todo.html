@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="todo.html">To Do</a></li>
+                <li><a href="takeabreak.html">Take a Break</a></li>
+                <li><a href="help.html">Give Help or Take Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Your To-Do List</h2>
+        <div class="goal-section">
+            <input type="text" id="goal" placeholder="Add a new goal...">
+            <button id="addGoal">Add Goal</button>
+            <ul id="goalList"></ul>
+        </div>
+        <h2>Your Study Hours</h2>
+        <input type="number" id="studyHours" placeholder="Hours studied" min="0">
+        <button id="logHours">Log Hours</button>
+        <div id="calendar"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sync'd. All Rights Reserved.</p>
+    </footer>
+    <script src="todo.js"></script>
+</body>
+</html>

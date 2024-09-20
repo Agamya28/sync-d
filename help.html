@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Help or Take Help</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="todo.html">To Do</a></li>
+                <li><a href="takeabreak.html">Take a Break</a></li>
+                <li><a href="help.html">Give Help or Take Help</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Help Section</h2>
+        <div class="help-section">
+            <input type="text" id="helpRequest" placeholder="Ask your question...">
+            <button id="askQuestion">Ask</button>
+            <ul id="helpList"></ul>
+        </div>
+        <h2>Available Questions</h2>
+        <ul id="questionFeed"></ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sync'd. All Rights Reserved.</p>
+    </footer>
+    <script src="help.js"></script>
+</body>
+</html>
