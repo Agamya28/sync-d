@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recap'd - Sync'd</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: #f7f7f7;
+            color: #3c3d37;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #181c14;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ecdfcc;
+            z-index: 1000;
+        }
+
+        header img {
+            height: 3em;
+            width: 3em;
+            margin-right: 1rem;
+        }
+
+        .content {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .assignment-stats {
+            margin: 2rem 0;
+            background-color: #ecdfcc;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .assignment-count {
+            font-size: 3rem;
+            color: #3c3d37;
+            background: linear-gradient(135deg, #37858e, #3c3d37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Shapes */
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: #37858e;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            z-index: -1;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 80px solid #fcba03;
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            z-index: -1;
+        }
+
+        .graph-container {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #f3e8e2;
+            border-radius: 0.5rem;
+        }
+
+        .graph-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #37858e;
+        }
+
+        .graph {
+            width: 80%;
+            height: 300px;
+            margin: auto;
+            background-color: #d6cfc4;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .bar {
+            height: 100%;
+            width: 30px;
+            background-color: #1e656e;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .bar1 {
+            left: 20%;
+            height: 50%;
+        }
+
+        .bar2 {
+            left: 40%;
+            height: 70%;
+        }
+
+        .bar3 {
+            left: 60%;
+            height: 90%;
+        }
+
+        .breaks-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .break-image {
+            width: 150px;
+            height: 100px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .break-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .break-image:hover {
+            transform: scale(1.05);
+        }
+
+        .fun-sentences {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #3c3d37;
+        }
+
+        footer {
+            background-color: #181c14;
+            color: #ecdfcc;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <a href="/index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+            <span class="logo-text" style="font-size: 2rem;">Sync'd</span>
+        </div>
+        <a href="profile.html"><img src="profile.png" alt="Profile Image"></a>
+    </header>
+
+    <div class="content">
+        <h1>Your Study Recap'd</h1>
+
+        <div class="assignment-stats">
+            <h2>Assignments Completed</h2>
+            <p class="assignment-count">47</p>
+            <p>Great job! You completed 47 assignments this semester!</p>
+            <div class="circle"></div>
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Graph Section -->
+        <div class="graph-container">
+            <h2 class="graph-title">Study Consistency</h2>
+            <div class="graph">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+            <p>See how consistent you've been across the semester!</p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="breaks-gallery">
+            <div class="break-image">
+                <img src="break1.jpg" alt="Study Break 1">
+            </div>
+            <div class="break-image">
+                <img src="break2.jpg" alt="Study Break 2">
+            </div>
+            <div class="break-image">
+                <img src="break3.jpg" alt="Study Break 3">
+            </div>
+            <div class="break-image">
+                <img src="break4.jpg" alt="Study Break 4">
+            </div>
+        </div>
+
+        <!-- Fun Sentences -->
+        <div class="fun-sentences">
+            <p>"Breaks are for recharging your brain!"</p>
+            <p>"You can't pour from an empty cup!"</p>
+            <p>"Celebrate every little victory!"</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sync'd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

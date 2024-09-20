@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync'd Stopwatch</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #181c14;
+            color: white;
+            font-family: 'Impact', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #121510;
+            display: flex;
+            padding: 1em;
+            align-items: center;
+            z-index: 1000;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            height: 3em;
+            width: 3em;
+            margin-right: 1rem;
+        }
+
+        header .logo-text {
+            font-size: 2rem;
+            color: #ecdfcc;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem; /* To account for the header */
+        }
+
+        .digital-time {
+            font-size: 10rem; /* Large font size for the digital display */
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', Courier, monospace; /* Calculator-style font */
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 15px 20px;
+            background-color: #ecdfcc;
+            border: none;
+            border-radius: 5px;
+            color: #181c14;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d1c6a0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <a href="/index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+            <span class="logo-text">Sync'd</span>
+        </div>
+        <a href="profile.html"><img src="profile.png" alt="Profile Image" style="height: 3em;"></a>
+    </header>
+
+    <main>
+        <div class="digital-time" id="digital-time">00:00:00</div>
+
+        <div class="buttons">
+            <button class="button" id="startBtn">Start</button>
+            <button class="button" id="stopBtn">Stop</button>
+            <button class="button" id="resetBtn">Reset</button>
+        </div>
+    </main>
+
+    <script>
+        let running = false;
+        let seconds = 0;
+        let timerInterval;
+        
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const digitalTime = document.getElementById('digital-time');
+
+        startBtn.addEventListener('click', () => {
+            if (!running) {
+                running = true;
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    digitalTime.innerHTML = new Date(seconds * 1000).toISOString().substr(11, 8);
+                }, 1000);
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            running = false;
+            clearInterval(timerInterval);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            running = false;
+            clearInterval(timerInterval);
+            seconds = 0;
+            digitalTime.innerHTML = "00:00:00";
+        });
+    </script>
+</body>
+
+</html>

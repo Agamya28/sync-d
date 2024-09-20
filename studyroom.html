@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Room - Sync'd</title>
+    <style>
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: #f7f7f7;
+            color: #3c3d37;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #181c14;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ecdfcc;
+            z-index: 1000;
+        }
+
+        header img {
+            height: 3em;
+            width: 3em;
+            margin-right: 1rem;
+        }
+
+        .content {
+            margin-top: 5rem; /* To account for the fixed header */
+        }
+
+        .study-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .button {
+            background-color: #ecdfcc; /* Same background color as posts */
+            color: #3c3d37;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d5c7a6; /* Slightly darker on hover */
+        }
+
+        .meeting-link {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        footer {
+            background-color: #181c14;
+            color: #ecdfcc;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <a href="/index.html"><img src="logo.png" alt="Sync'd Logo"></a>
+            <span class="logo-text" style="font-size: 2rem;">Sync'd</span>
+        </div>
+        <a href="profile.html"><img src="profile.png" alt="Profile Image"></a>
+    </header>
+
+    <div class="content">
+        <h1>Study Room</h1>
+        <div class="study-options">
+            <button class="button" onclick="window.open('https://meet.google.com', '_blank')">Create Study Room</button>
+            <p>To join a study room with a friend, navigate to their profile.</p>
+            
+            <div class="meeting-link">
+                <p>Paste your Google Meet link here:</p>
+                <input type="text" id="meetLink" placeholder="Enter Meet link" />
+                <p id="displayLink" style="margin-top: 1rem;"></p>
+            </div>
+            <button class="button" onclick="showLink()">Show Meet Link</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sync'd. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showLink() {
+            const link = document.getElementById('meetLink').value;
+            document.getElementById('displayLink').innerText = link ? `Your Meet Link: ${link}` : '';
+        }
+    </script>
+
+</body>
+
+</html>
